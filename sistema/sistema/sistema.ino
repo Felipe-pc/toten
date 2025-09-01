@@ -1,20 +1,25 @@
 #include<Adafruit_SSD1306.h>
-Adafruit_SSD1306 tela(128,64,&Wire,-1);
+Adafruit_SSD1306 tela(128,64,&Wire,-1);//define a tela
+
 void setup() {
-  // put your setup code here, to run once:
-tela.begin(SSD1306_SWITCHCAPVCC, 0x3C);
-tela.clearDisplay();
-tela.display();
-tela.setTextSize(1);
-tela.setTextColor(SSD1306_WHITE);
+tela.begin(SSD1306_SWITCHCAPVCC, 0x3C);//ativa a tela
+tela.clearDisplay();//limpa a tela
+tela.display();//atualiza a tela
+tela.setTextSize(1);//define o tamanho da tela
+tela.setTextColor(SSD1306_WHITE);//defini a cor da tela
 }
 
+int grafico(int x,int y,char frase[25],int tamanho=1){
+  tela.setTextSize(tamanho);
+  tela.setCursor(x,y);
+  tela.print(frase);
+  tela.display();
+  return 0;
+}
 void loop() {
-  // put your main code here, to run repeatedly:
-tela.setCursor(0,0);
-tela.println("ola,mundo");
-tela.setCursor(0,16);
-tela.println("12");
-tela.display();
+grafico(0,0,"ola,mundo",2);
+grafico(0,16,"12 douze");
 delay(5000);
+tela.clearDisplay();
+delay(2000);
 }
