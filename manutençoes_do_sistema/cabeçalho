@@ -1,0 +1,10 @@
+#include<Adafruit_SSD1306.h>
+Adafruit_SSD1306 tela(128,64,&Wire,-1);//define a tela
+
+void setup() {
+tela.begin(SSD1306_SWITCHCAPVCC, 0x3C);//ativa a tela
+tela.clearDisplay();//limpa a tela
+tela.display();//atualiza a tela
+tela.setTextSize(1);//define o tamanho da tela
+tela.setTextColor(SSD1306_WHITE);//defini a cor da tela
+}

@@ -1,0 +1,7 @@
+int grafico(int x,int y,char frase[25],int tamanho=1){
+  tela.setTextSize(tamanho);
+  tela.setCursor(x,y);
+  tela.print(frase);
+  tela.display();
+  return 0;
+}
