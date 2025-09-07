@@ -4,14 +4,14 @@ linhas=[]
 colunas=[]
 print("iniciando criação...")
 print("para iniciar vamos definir os pinos de colunas e linhas no teclado")
-print("primeiro 4 colunas, digite o numero dos quatro pinos")
+print("primeiro 4 linhas, digite o numero dos quatro pinos")
 for i in range(0,4):
     recebe=int(input(">>>"))
-    colunas.append(recebe)
-print("agora 4 linhas, digite o numero dos quatro outros pinos")
+    linhas.append(recebe)
+print("agora 4 colunas, digite o numero dos quatro outros pinos")
 for i in range(0,4):
     recebe2=int(input(">>>"))
-    linhas.append(recebe2)
+    colunas.append(recebe2)
 
 #cabeçalho
 arquivo.write(f"""
