@@ -122,5 +122,6 @@ grafico(0,0,"ola,mundo",2);
 grafico(0,16,"12 douze");
 delay(5000);
 tela.clearDisplay();
+teclado();
 delay(2000);
 }
