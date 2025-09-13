@@ -17,6 +17,7 @@ pinMode(26,INPUT);
 pinMode(25,INPUT);
 pinMode(5,INPUT);
 pinMode(18,INPUT);
+Serial.begin(9600);
 }
 
 int grafico(int x,int y,char frase[25],int tamanho=1){
@@ -30,16 +31,17 @@ int grafico(int x,int y,char frase[25],int tamanho=1){
 int teclado(){
 while(true){
   int pin1,pin2,pin3,pin4;
-  delay(200);
+  delay(20);
   pinMode(12,HIGH);
   pinMode(13,LOW);
   pinMode(14,LOW);
   pinMode(27,LOW);
-  pin1=digitalRead(26);
-  pin2=digitalRead(25);
-  pin3=digitalRead(5);
-  pin4=digitalRead(18);
-  if (pin1==4095){
+  pin1=analogRead(26);
+  pin2=analogRead(25);
+  pin3=analogRead(5);
+  pin4=analogRead(18);
+  if (pin1 == 4095){
+    Serial.println(pin1);
     return 1;
   }
   if (pin2==4095){
@@ -51,7 +53,7 @@ while(true){
   if (pin4==4095){
     return 4;
   }
-  delay(200);
+  delay(20);
   pinMode(12,LOW);
   pinMode(13,HIGH);
   pinMode(14,LOW);
@@ -76,7 +78,7 @@ while(true){
   pinMode(13,LOW);
   pinMode(14,HIGH);
   pinMode(27,LOW);
-  delay(200);
+  delay(20);
   pin1=digitalRead(26);
   pin2=digitalRead(25);
   pin3=digitalRead(5);
@@ -93,7 +95,7 @@ while(true){
   if (pin4==4095){
     return 12;
   }
-  delay(200);
+  delay(20);
   pinMode(12,LOW);
   pinMode(13,LOW);
   pinMode(14,LOW);
@@ -118,10 +120,6 @@ while(true){
 }
 
 void loop() {
-grafico(0,0,"ola,mundo",2);
-grafico(0,16,"12 douze");
-delay(5000);
-tela.clearDisplay();
 teclado();
-delay(2000);
+delay(200);
 }
