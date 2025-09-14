@@ -120,6 +120,13 @@ while(true){
 }
 
 void loop() {
-teclado();
+int rec;
+rec=teclado();
+if(rec==1){
+  grafico(0,18,"1",2);
+}
+delay(2000);
+tela.clearDisplay();
+tela.display();
 delay(200);
 }
