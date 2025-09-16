@@ -17,7 +17,6 @@ pinMode(26,INPUT);
 pinMode(25,INPUT);
 pinMode(5,INPUT);
 pinMode(18,INPUT);
-Serial.begin(9600);
 }
 
 int grafico(int x,int y,char frase[25],int tamanho=1){
@@ -41,7 +40,6 @@ while(true){
   pin3=analogRead(5);
   pin4=analogRead(18);
   if (pin1 == 4095){
-    Serial.println(pin1);
     return 1;
   }
   if (pin2==4095){
@@ -58,10 +56,10 @@ while(true){
   pinMode(13,HIGH);
   pinMode(14,LOW);
   pinMode(27,LOW);
-  pin1=digitalRead(26);
-  pin2=digitalRead(25);
-  pin3=digitalRead(5);
-  pin4=digitalRead(18);
+  pin1=analogRead(26);
+  pin2=analogRead(25);
+  pin3=analogRead(5);
+  pin4=analogRead(18);
   if (pin1==4095){
     return 5;
   }
@@ -79,10 +77,10 @@ while(true){
   pinMode(14,HIGH);
   pinMode(27,LOW);
   delay(20);
-  pin1=digitalRead(26);
-  pin2=digitalRead(25);
-  pin3=digitalRead(5);
-  pin4=digitalRead(18);
+  pin1=analogRead(26);
+  pin2=analogRead(25);
+  pin3=analogRead(5);
+  pin4=analogRead(18);
   if (pin1==4095){
     return 9;
   }
@@ -100,10 +98,10 @@ while(true){
   pinMode(13,LOW);
   pinMode(14,LOW);
   pinMode(27,HIGH);
-  pin1=digitalRead(26);
-  pin2=digitalRead(25);
-  pin3=digitalRead(5);
-  pin4=digitalRead(18);
+  pin1=analogRead(26);
+  pin2=analogRead(25);
+  pin3=analogRead(5);
+  pin4=analogRead(18);
   if (pin1==4095){
     return 13;
   }
