@@ -8,15 +8,6 @@ tela.clearDisplay();//limpa a tela
 tela.display();//atualiza a tela
 tela.setTextSize(1);//define o tamanho da tela
 tela.setTextColor(SSD1306_WHITE);//defini a cor da tela
-//ativação de pinos de teclado
-pinMode(12,OUTPUT);
-pinMode(14,OUTPUT);
-pinMode(13,OUTPUT);
-pinMode(27,OUTPUT);
-pinMode(26,INPUT);
-pinMode(25,INPUT);
-pinMode(5,INPUT);
-pinMode(18,INPUT);
 }
 
 int grafico(int x,int y,char frase[25],int tamanho=1){
@@ -27,104 +18,11 @@ int grafico(int x,int y,char frase[25],int tamanho=1){
   return 0;
 }
 
-int teclado(){
-while(true){
-  int pin1,pin2,pin3,pin4;
-  delay(20);
-  pinMode(12,HIGH);
-  pinMode(13,LOW);
-  pinMode(14,LOW);
-  pinMode(27,LOW);
-  pin1=analogRead(26);
-  pin2=analogRead(25);
-  pin3=analogRead(5);
-  pin4=analogRead(18);
-  if (pin1 == 4095){
-    return 1;
-  }
-  if (pin2==4095){
-    return 2;
-  }
-  if (pin3==4095){
-    return 3;
-  }
-  if (pin4==4095){
-    return 4;
-  }
-  delay(20);
-  pinMode(12,LOW);
-  pinMode(13,HIGH);
-  pinMode(14,LOW);
-  pinMode(27,LOW);
-  pin1=analogRead(26);
-  pin2=analogRead(25);
-  pin3=analogRead(5);
-  pin4=analogRead(18);
-  if (pin1==4095){
-    return 5;
-  }
-  if (pin2==4095){
-    return 6;
-  }
-  if (pin3==4095){
-    return 7;
-  }
-  if (pin4==4095){
-    return 8;
-  }
-  pinMode(12,LOW);
-  pinMode(13,LOW);
-  pinMode(14,HIGH);
-  pinMode(27,LOW);
-  delay(20);
-  pin1=analogRead(26);
-  pin2=analogRead(25);
-  pin3=analogRead(5);
-  pin4=analogRead(18);
-  if (pin1==4095){
-    return 9;
-  }
-  if (pin2==4095){
-    return 10;
-  }
-  if (pin3==4095){
-    return 11;
-  }
-  if (pin4==4095){
-    return 12;
-  }
-  delay(20);
-  pinMode(12,LOW);
-  pinMode(13,LOW);
-  pinMode(14,LOW);
-  pinMode(27,HIGH);
-  pin1=analogRead(26);
-  pin2=analogRead(25);
-  pin3=analogRead(5);
-  pin4=analogRead(18);
-  if (pin1==4095){
-    return 13;
-  }
-  if (pin2==4095){
-    return 14;
-  }
-  if (pin3==4095){
-    return 15;
-  }
-  if (pin4==4095){
-    return 16;
-  }
-}
-}
-
 void loop() {
-int rec;
-rec=teclado();
-if(rec==1){
-  grafico(0,18,"1",2);
-}
 delay(2000);
+grafico(0,0,"funciona",2);
+delay(4000);
 tela.clearDisplay();
 tela.display();
-delay(200);
+delay(2000);
 }
